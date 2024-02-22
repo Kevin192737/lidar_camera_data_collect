@@ -1,0 +1,18 @@
+<launch>
+    <!-- 启动雷达节点 -->
+    <include file="$(find livox_ros_driver2)/launch_ROS1/rviz_MID360.launch"/>
+
+    <include file="$(find realsense2_camera)/launch/demo_pointcloud.launch"/>
+
+    <node name="link1_broadcaster" pkg="tf" type="static_transform_publisher"  
+		args="-0.02611593 -0.0597984 0.0509368 -0.50107211 -0.4898137 -0.50072068 0.5082205 camera_color_optical_frame livox_frame 100"/>
+
+    <!-- <node name="lidar_camera_sync_node" pkg="lidar_camera_sync" 
+            type="lidar_camera_sync_node" output="screen"/> -->
+
+    <!-- <node name="pcl_writer" pkg="lidar_camera_sync" 
+            type="pcl_writer" output="screen"/> -->
+
+    <node name="image_pointcloud_sync_node" pkg="lidar_camera_sync" 
+            type="image_pointcloud_sync_node" output="screen"/>
+</launch>

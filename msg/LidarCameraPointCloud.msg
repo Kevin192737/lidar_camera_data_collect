@@ -1,0 +1,2 @@
+sensor_msgs/PointCloud2 lidar_pointcloud
+sensor_msgs/PointCloud2 camera_pointcloud
