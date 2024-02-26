@@ -1,2 +1,12 @@
 雷达相机数据采集功能包
 其中，Livox-SDK-master,livox_ros_driver2,realsense-ros-ros1-legacy三个为官方的SDK或ROS功能包
+lidar_camera_sync为雷达相机数据采集功能包：
+src中cpp:
+lidar_camera_sync.cpp：同步相机和雷达的点云话题，合并为一个自定义话题并发布，但是不支持将其在rviz中显示出来，目前尚未使用
+pcl_write.cpp:保存雷达点云为pcd文件
+image_pointcloud_sync.cpp：同步相机的图像与雷达的点云话题，并将两者分别保存
+launch文件：
+第一段：启动雷达
+第二段：启动相机
+第三段：说明雷达坐标系与相机坐标系的转换关系
+第四段：启动lidar_camera_sync功能包中的节点
